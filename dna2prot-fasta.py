@@ -30,6 +30,16 @@ def transcript(DNA):
     mRNA=DNA.replace('T','U')
     return mRNA
 
+def translate(mRNA):
+    for i in range(0,len(mRNA)/3):
+        codon = []
+        AAseq = []
+        tRNA= mRNA[i*3:i*3+3:1] #Reads the next 3 digit codon at every loop iteration
+        codon.append(tRNA)#adds each codon to codon[i] in order for later dict access
+        AA = RNA_codon_table[codon]#Translates each mRNA codon to Amino Acid
+        AAseq.append(AA)
+    return "".join(AAseq)
+        
 file_location = raw_input("Where is your FASTA file? ")
 stripped = []
 metadata = []
