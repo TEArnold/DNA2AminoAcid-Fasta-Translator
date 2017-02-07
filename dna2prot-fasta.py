@@ -26,6 +26,10 @@ RNA_codon_table = {
 def rev_complement(seq):
     return seq[::-1]
 
+def transcript(DNA):
+    mRNA=DNA.replace('T','U')
+    return mRNA
+
 file_location = raw_input("Where is your FASTA file? ")
 stripped = []
 metadata = []
